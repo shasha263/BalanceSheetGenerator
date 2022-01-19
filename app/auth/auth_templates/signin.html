@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %} Signin Page {% endblock title%}
+{% block content%}
+<link rel="stylesheet" href="../static/css/main.css">
+
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div class="row justify-content-center">
+            <h3>Welcome back</h3>
+        </div>
+        <div id="pic1" class="row justify-content-center">
+            <img src="../../static/css/images/img_411076.png" class="rounded" alt="Responsive image" height="100">
+        </div>
+        <div class="row justify-content-center">
+            <br>
+            <h5>Please login to your account</h5>
+        </div>
+
+        <form method='POST'>
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                <fieldset id="username-field">
+                    {{form.username.label}}
+                    {{form.username(class="form-control", placeholder="Username ...")}}
+                </fieldset>
+
+                <fieldset id="password-field">
+                    {{form.password.label}}
+                    {{form.password(class="form-control",placeholder="Password...")}}
+                </fieldset>
+
+                <br>
+                {{form.submit(class="btn btn-block btn-info")}}
+            </div>
+        </form>
+        
+                
+        
+
+        <div class="text-center">
+            <h7>Don't have account? </h7>
+            <a class="btn btn-link" href="{{url_for('auth.signup')}}" role="button">Create New Account</a>
+        </div>
+
+    </div>
+</div>
+
+{%endblock content%}

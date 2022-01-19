@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+
+{% block title %} CAlculate Fixed Asset {% endblock title%}
+{% block content%}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <h3>What are your Company's Fixed Asset?</h3>
+            <p>Fixed assets refer to long-term tangible assets that are used in the operations of a business. If any
+                of the following do not apply to your company, please enter "0."</p>
+            <h5>Fixed Assets:</h5>
+            <div class="row justify-content-center"></div>
+
+            <form method='POST'>
+
+                <div class="form-group">
+
+                    <fieldset id="lt_investments-field">
+                        <b> {{form.lt_investments.label}}:</b> The value of a company's assets that are cash or can be converted
+                        into cash immediately.
+                        {{form.lt_investments(class="form-control",placeholder="Long-Term Investments ...")}}
+                    </fieldset>
+
+                    <fieldset id="land-field">
+                        <b>{{form.land.label}} :</b>Company has delivered products or services but not yet
+                        received payment.
+                        {{form.land(class="form-control",placeholder="Land ...")}}
+                    </fieldset>
+
+                    <fieldset id="building-field">
+                        <b>{{form.building.label}}:</b>The goods available for sale and raw materials used to produce
+                        goods available for sale.
+                        {{form.building(class="form-control",placeholder="Building ...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_building-field">
+                        <b>{{form.acc_depr_building.label}} :</b>Future expenses that are paid in advance.
+                        {{form.acc_depr_building(class="form-control", placeholder="Accumulated Depreciation - Building ...")}}
+                    </fieldset>
+
+                    <fieldset id="equipments-field">
+                        <b>{{form.equipments.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.equipments(class="form-control",placeholder="Equipments...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_equip-field">
+                        <b>{{form.acc_depr_equip.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.acc_depr_equip(class="form-control",placeholder="Accumulated Depreciation - Equipments...")}}
+                    </fieldset>
+
+                    <fieldset id="fnf-field">
+                        <b>{{form.fnf.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.fnf(class="form-control",placeholder="Furnitures and Fixtures...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_fnf-field">
+                        <b>{{form.acc_depr_fnf.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.acc_depr_fnf(class="form-control",placeholder="Accumulated Depreciation -Furnitures and Fixtures...")}}
+                    </fieldset>
+
+
+
+                    <fieldset id="other_fixed_asset-field">
+                        <b>{{form.other_fixed_asset.label}} :</b> Assets that are either owed to the company within one year
+                        or likely to be used within one year.
+                        {{form.other_fixed_asset(class="form-control",placeholder="Other Fixed Asset ...")}}
+                    </fieldset>
+                    <br>
+                    {{form.submit(class="btn btn-block btn-info")}}
+                </div>
+            </form>
+        </div>
+
+
+<!--
+
+        <div class="col-6">
+            <div class="row justify-content-center">
+                <h3>Company Name:</h3>
+            </div>
+            <div class="row justify-content-center">
+                <h5>Balance Sheet</h5>
+            </div>
+            <div class="row justify-content-center">
+                <h5>Date</h5>
+            </div>
+
+            <div class="col-2">
+                <h3>Assets:</h3>
+            </div>
+            <div class="col-4">
+                <h6>Current Assets:</h6>
+            </div>
+            <div class="card-header">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Cash :</strong>${{new_current_asset.cash}} </li>
+                    <li class="list-group-item"><strong>Account Receivable:</strong>${{new_current_asset.account_receivable}}</li>
+                    <li class="list-group-item"><strong>Inventory : </strong>${{new_current_asset.inventory}}</li>
+                    <li class="list-group-item"><strong>Prepaid Expense :</strong>${{new_current_asset.prepaid_expense}}</li>
+                    <li class="list-group-item"><strong>Notes Receivable : </strong>${{new_current_asset.notes_receivable}}</li>
+                    <li class="list-group-item"><strong>other_asset :</strong>${{new_current_asset.other_asset}} </li>
+                </ul>
+
+                <div id="total" class="card-header">
+                    <li class="list-group-item"><strong>Total Current Asset:</strong>${{total_current_asset}} </li>
+                </div>
+
+            </div>
+
+
+            <div class="col-4">
+                <h6>Fixed Assets:</h6>
+            </div>
+            <div class="card-header">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Long-Term Investments :</strong>$0.00 </li>
+                    <li class="list-group-item"><strong>Land:</strong>$0.00</li>
+                    <li class="list-group-item"><strong>Building : </strong>$0.00</li>
+                    <li class="list-group-item"><strong>Accumulated Depreciation - Building :</strong> ($0.00)</li>
+                    <li class="list-group-item"><strong>Equipments : </strong>$0.00</li>
+                    <li class="list-group-item"><strong>Accumulated Depreciation- Equipments :</strong>($0.00)</li>
+                    <li class="list-group-item"><strong>Furniture and Fixtures : </strong>$0.00</li>
+                    <li class="list-group-item"><strong>Accumulated Depreciation - Furniture and Fixtures :</strong>($0.00)</li>
+                    <li class="list-group-item"><strong>Other Fixed Assets : </strong>$0.00</li>
+                </ul>
+
+                <div id="total" class="card-header">
+                    <li class="list-group-item"><strong>Total Fixed Asset:</strong>$0.00 </li>
+                </div>
+
+            </div>
+        </div> -->
+    </div>
+</div> 
+
+{%endblock content%}

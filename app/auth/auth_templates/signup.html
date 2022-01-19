@@ -1,0 +1,51 @@
+{% extends 'layout.html'%}
+
+{% block title %} SignUP Page {% endblock title%}
+{% block content%}
+<link rel="stylesheet" href="../static/css/main.css">
+
+<div id="signup" class="container-fluid">
+    <div class="row justify-content-center">
+        
+        <div id="pic1" class="col-4 centered">
+            <img src="../../static/css/images/signup.jfif" class="rounded" alt="Responsive image" height="400">
+        </div>
+
+        <div class="col-4">
+            <div class="row justify-content-center"><h3>Create an Account</h3></div>
+           
+            <form method='POST'>
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+
+                    <fieldset id="first_name-field">
+                        {{form.first_name.label}}
+                        {{form.first_name(class="form-control",placeholder="First Name ...")}}
+                    </fieldset>
+                    <fieldset id="last_name-field">
+                        {{form.last_name.label}}
+                        {{form.last_name(class="form-control",placeholder="Last Name ...")}}
+                    </fieldset>
+                    <fieldset id="email-field">
+                        {{form.email.label}}
+                        {{form.email(class="form-control",placeholder="Email ...")}}
+                    </fieldset>
+                    <fieldset id="username-field">
+                        {{form.username.label}}
+                        {{form.username(class="form-control", placeholder="Username ...")}}
+                    </fieldset>
+                    <fieldset id="password-field">
+                        {{form.password.label}}
+                        {{form.password(class="form-control",placeholder="Password...")}}
+                    </fieldset>
+                    <fieldset id="confirm_password-field">
+                        {{form.confirm_password.label}}
+                        {{form.confirm_password(class="form-control",placeholder="Confirm password ...")}}
+                    </fieldset>
+
+                    <br>
+                    {{form.submit(class="btn btn-block btn-info")}}
+                </div>
+            </form>
+        </div>
+        {% endblock content %}

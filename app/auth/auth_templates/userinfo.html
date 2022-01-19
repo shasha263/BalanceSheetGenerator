@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{current_user.username}} {% endblock title%}
+{% block content%}
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card-header">
+            Hello, {{current_user.first_name}}
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Name:</strong>{{current_user.first_name}} {{current_user.last_name}}
+            </li>
+            <li class="list-group-item"><strong>Email:</strong>{{current_user.email}}</li>
+            <li class="list-group-item"><strong>UserName: </strong>{{current_user.username}}</li>
+        </ul>
+
+        
+        <a class="btn btn-dark" href="{{url_for('auth.profile')}}" role="button">Update your Username</a>
+        <a class="btn btn-dark" href="{{url_for('auth.change_password')}}" role="button">Change Password</a>
+
+
+    </div>
+
+</div>
+
+{% endblock content %}

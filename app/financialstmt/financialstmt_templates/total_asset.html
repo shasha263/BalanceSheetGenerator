@@ -1,0 +1,269 @@
+{% extends 'layout.html' %}
+
+{% block title %} CAlculate Current Asset {% endblock title%}
+{% block content%}
+
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8 justify-content-center">
+            <form method='POST'>
+                {{ form.hidden_tag() }}
+                <h3>Balance Sheet</h3>
+
+                <div class="form-group justify-content-center">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm"><b>
+                                <h5>{{form.company_name.label}}</h5>
+                            </b></label>
+                        <div class="col-sm-4">
+                            {{form.company_name(class="form-control",placeholder="Company Name ...")}} </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm"><b>
+                                <h5>{{form.date_.label}}</h5>
+                            </b></label>
+                        <div class="col-sm-4">
+                            {{form.date_(class="form-control",placeholder="Date of the Balance Sheet ...")}} </div>
+                    </div>
+                </div>
+
+
+                <div class="card text-white bg-dark mb-3 ">
+                    <div class="card-body justify-content-center">
+                        <p class="card-text justify-content-center">
+                        <h4>Total Asset = Current Asset + Fixed Asset</h4>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-header">
+                    <h5>Current Asset</h5>
+                </div>
+                <p>Current assets are cash and other assets that can be turned into cash within the next 12 months. If
+                    any of the following do not apply to your company, please enter "0."</p>
+
+                <div class="form-group">
+                    <fieldset id="cash-field">
+                        <b> {{form.cash.label}}:</b> The value of a company's assets that are cash or can be
+                        converted
+                        into cash immediately.
+                        {{form.cash(class="form-control",placeholder="Cash ...")}}
+                    </fieldset>
+                    <fieldset id="account_receivable-field">
+                        <b>{{form.account_receivable.label}} :</b>Company has delivered products or services but not
+                        yet received payment.
+                        {{form.account_receivable(class="form-control",placeholder="Account Receivable ...")}}
+                    </fieldset>
+
+                    <fieldset id="inventory-field">
+                        <b>{{form.inventory.label}}:</b>The goods available for sale and raw materials used to
+                        produce goods available for sale.
+                        {{form.inventory(class="form-control",placeholder="Inventory ...")}}
+                    </fieldset>
+
+                    <fieldset id="prepaid_expense-field">
+                        <b>{{form.prepaid_expense.label}} :</b>Future expenses that are paid in advance.
+                        {{form.prepaid_expense(class="form-control", placeholder="Prepaid Expense ...")}}
+                    </fieldset>
+
+                    <fieldset id="notes_receivable-field">
+                        <b>{{form.notes_receivable.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.notes_receivable(class="form-control",placeholder="Notes Receivable...")}}
+                    </fieldset>
+
+                    <fieldset id="other_asset-field">
+                        <b>{{form.other_asset.label}} :</b> Assets that are either owed to the company within one
+                        year
+                        or likely to be used within one year.
+                        {{form.other_asset(class="form-control",placeholder="Other Current Asset ...")}}
+                    </fieldset>
+                    <br>
+                </div>
+
+                <div class="card-header">
+                    <h5>Fixed Asset</h5>
+                </div>
+                <p>Fixed assets refer to long-term tangible assets that are used in the operations of a business. If
+                    any of the following do not apply to your company, please enter "0."</p>
+                <div class="form-group">
+                    <fieldset id="lt_investments-field">
+                        <b> {{form.lt_investments.label}}:</b> The value of a company's assets that are cash or can
+                        be converted into cash immediately.
+                        {{form.lt_investments(class="form-control",placeholder="Long-Term Investments ...")}}
+                    </fieldset>
+
+                    <fieldset id="land-field">
+                        <b>{{form.land.label}} :</b>Company has delivered products or services but not yet
+                        received payment.
+                        {{form.land(class="form-control",placeholder="Land ...")}}
+                    </fieldset>
+
+                    <fieldset id="building-field">
+                        <b>{{form.building.label}}:</b>The goods available for sale and raw materials used to
+                        produce
+                        goods available for sale.
+                        {{form.building(class="form-control",placeholder="Building ...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_building-field">
+                        <b>{{form.acc_depr_building.label}} :</b>Future expenses that are paid in advance.
+                        {{form.acc_depr_building(class="form-control", placeholder="Accumulated Depreciation -
+                        Building ...")}}
+                    </fieldset>
+
+                    <fieldset id="equipments-field">
+                        <b>{{form.equipments.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.equipments(class="form-control",placeholder="Equipments...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_equip-field">
+                        <b>{{form.acc_depr_equip.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.acc_depr_equip(class="form-control",placeholder="Accumulated
+                        Depreciation-Equipments...")}}
+                    </fieldset>
+
+                    <fieldset id="fnf-field">
+                        <b>{{form.fnf.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.fnf(class="form-control",placeholder="Furnitures and Fixtures...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_fnf-field">
+                        <b>{{form.acc_depr_fnf.label}} :</b> All amounts due to your business from having made a
+                        loan, usually to customers, employees or officers of the business.
+                        {{form.acc_depr_fnf(class="form-control",placeholder="Accumulated Depreciation -Furnitures and
+                        Fixtures...")}}
+                    </fieldset>
+                    <fieldset id="other_fixed_asset-field">
+                        <b>{{form.other_fixed_asset.label}} :</b> Assets that are either owed to the company within
+                        one year
+                        or likely to be used within one year.
+                        {{form.other_fixed_asset(class="form-control",placeholder="Other Fixed Asset ...")}}
+                    </fieldset>
+
+                </div>
+
+
+                <div class="card text-white bg-dark mb-3 ">
+                    <div class="card-body justify-content-center">
+                        <p class="card-text justify-content-center">
+                        <h4>Liability and Equity</h4>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-header">
+                    <h5>Current Liability</h5>
+                </div>
+                <p>Current liabilities are a company's short-term financial obligations that are due within one year or
+                    within a normal operating cycle. If
+                    any of the following do not apply to your company, please enter "0.00"</p>
+
+                <div class="form-group">
+                    <fieldset id="accounts_payable-field">
+                        <b> {{form.accounts_payable.label}}:</b> The meaning of ACCOUNT PAYABLE is the balance due to a
+                        creditor on a current account.
+                        {{form.accounts_payable(class="form-control",placeholder="Accounts Payable ...")}}
+                    </fieldset>
+                    <fieldset id="accrued_wages-field">
+                        <b>{{form.accrued_wages.label}} :</b>Accrued wages refers to the amount of liability remaining
+                        at the end of a reporting period for wages that have been earned by hourly employees but not yet
+                        paid to them.
+                        {{form.accrued_wages(class="form-control",placeholder="Accrued Wages ...")}}
+                    </fieldset>
+
+                    <fieldset id="accrued_payroll_taxes-field">
+                        <b>{{form.accrued_payroll_taxes.label}}:</b> Accrued Payroll Taxes are the payroll taxes that
+                        are due to government authorities, but not yet paid, is accrued payroll taxes
+                        {{form.accrued_payroll_taxes(class="form-control",placeholder="Accrued Payroll Taxes ...")}}
+                    </fieldset>
+
+                    <fieldset id="accrued_employee_benefit-field">
+                        <b>{{form.accrued_employee_benefit.label}} :</b>Accrued benefits are a form of income employees
+                        receive, but the income is not immediately paid
+                        {{form.accrued_employee_benefit(class="form-control", placeholder="Accrued Employee Benefit
+                        ...")}}
+                    </fieldset>
+
+                    <fieldset id="interest_payable-field">
+                        <b>{{form.interest_payable.label}} :</b> Interest payable is the amount of interest on its debt
+                        that a company owes to its lenders as of the balance sheet date.
+                        {{form.interest_payable(class="form-control",placeholder="Interest Payable...")}}
+                    </fieldset>
+
+                    <fieldset id="short_term_notes-field">
+                        <b>{{form.short_term_notes.label}} :</b> Short term notes payable are obligations to pay a
+                        specified sum, plus interest, within one year.
+                        {{form.short_term_notes(class="form-control",placeholder="Short Term Notes ...")}}
+                    </fieldset>
+
+                    <fieldset id="deferred_income-field">
+                        <b>{{form.deferred_income.label}} :</b> Deferred income is the advance payment received for a
+                        service or product yet to be delivered.
+                        {{form.deferred_income(class="form-control",placeholder="Deferred Income ...")}}
+                    </fieldset>                    
+                </div>
+
+                
+                <div class="card-header">
+                    <h5>Long Term Liability</h5>
+                </div>
+                <p>Long Term liabilities are the amounts owed by the business to the outside parties that are payable after a period of twelve months. If
+                    any of the following do not apply to your company, please enter "0.00"</p>
+
+                <div class="form-group">
+                    <fieldset id="accounts_payable-field">
+                        <b> {{form.mortgage.label}}:</b> Mortgage Loan Payable contains the principal amount owed on a mortgage loan.
+                        {{form.mortgage(class="form-control",placeholder="Mortgage...")}}
+                    </fieldset>
+                    <fieldset id="other_long_term_liabilities-field">
+                        <b>{{form.other_long_term_liabilities.label}} :</b> Other long-term liabilities might include items such as pension liabilities, capital leases , deferred credits, customer deposits, and deferred tax liabilities.
+                        {{form.other_long_term_liabilities(class="form-control",placeholder="other_long_term_liabilities ...")}}
+                    </fieldset>                 
+
+                    <br>
+                </div>
+
+
+
+
+                <div class="card-header">
+                    <h5>Equity</h5>
+                </div>
+                <p>Equity is the financial resources of a company: the sum that appears in the contribution of partners or shareholders , or the resources generated by the company itself.  If
+                    any of the following do not apply to your company, please enter "0"</p>
+
+                <div class="form-group">
+                    <fieldset id="paid_in_capital-field">
+                        <b> {{form.paid_in_capital.label}}:</b>Paid-in capital is the full amount of cash or other assets that shareholders have given a company in exchange for stock, par value plus any amount paid in excess.
+                        {{form.paid_in_capital(class="form-control",placeholder="Paid in Capital...")}}
+                    </fieldset>
+                    <fieldset id="other_equity-field">
+                        <b>{{form.other_equity.label}} :</b> A stock or any other security representing an ownership interest
+                        {{form.other_equity(class="form-control",placeholder="Other Equity ...")}}
+                    </fieldset>       
+                    
+                    
+                    <fieldset id="retained_earnings-field">
+                        <b> {{form.retained_earnings.label}}:</b> Retained earnings are a firm's cumulative net earnings or profit after accounting for dividends. They're also referred to as the earnings surplus.
+                        {{form.retained_earnings(class="form-control",placeholder="Retained Earnings...")}}
+                    </fieldset>
+                    <fieldset id="current_year_earnings-field">
+                        <b>{{form.current_year_earnings.label}} :</b> Other long-term liabilities might include items such as pension liabilities, capital leases , deferred credits, customer deposits, and deferred tax liabilities.
+                        {{form.current_year_earnings(class="form-control",placeholder="Current Year Earnings ...")}}
+                    </fieldset>  
+
+                    <br>
+                    {{form.submit(class="btn btn-block btn-info")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock content%}
