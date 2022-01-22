@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+
+{% block title %} CAlculate Current Asset {% endblock title%}
+{% block content%}
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8 justify-content-center">
+            <form method='POST'>
+                {{ form.hidden_tag() }}
+                <h3>Asset Modify</h3>
+ 
+
+                <div class="card-header">
+                    <h5>Current Asset</h5>
+                </div>
+                
+
+                <div class="form-group">
+                    <fieldset id="cash-field">
+                        <b> {{form.new_cash.label}}:</b> 
+                        {{form.new_cash(class="form-control",placeholder="Cash ...")}}
+                    </fieldset>
+                    <fieldset id="account_receivable-field">
+                        <b>{{form.new_account_receivable.label}} :</b>
+                        {{form.new_account_receivable(class="form-control",placeholder="Account Receivable ...")}}
+                    </fieldset>
+
+                    <fieldset id="inventory-field">
+                        <b>{{form.new_inventory.label}}:</b>
+                        {{form.new_inventory(class="form-control",placeholder="Inventory ...")}}
+                    </fieldset>
+
+                    <fieldset id="prepaid_expense-field">
+                        <b>{{form.new_prepaid_expense.label}} :</b>
+                        {{form.new_prepaid_expense(class="form-control", placeholder="Prepaid Expense ...")}}
+                    </fieldset>
+
+                    <fieldset id="notes_receivable-field">
+                        <b>{{form.new_notes_receivable.label}} :</b> 
+                        {{form.new_notes_receivable(class="form-control", placeholder="Notes Receivable ...")}}
+                    </fieldset>
+
+                    <fieldset id="other_asset-field">
+                        <b>{{form.new_other_asset.label}} :</b> 
+                        {{form.new_other_asset(class="form-control",placeholder="Other Current Asset ...")}}
+                    </fieldset>
+                    <br>
+                </div>
+
+                <div class="card-header">
+                    <h5>Fixed Asset</h5>
+                </div>
+                
+                <div class="form-group">
+                    <fieldset id="lt_investments-field">
+                        <b> {{form.new_lt_investments.label}}:</b> 
+                        {{form.new_lt_investments(class="form-control",placeholder="Long-Term Investments ...")}}
+                    </fieldset>
+
+                    <fieldset id="land-field">
+                        <b>{{form.new_land.label}} :</b>
+                        {{form.new_land(class="form-control",placeholder="Land ...")}}
+                    </fieldset>
+
+                    <fieldset id="building-field">
+                        <b>{{form.new_building.label}}:</b>
+                        {{form.new_building(class="form-control",placeholder="Building ...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_building-field">
+                        <b>{{form.new_acc_depr_building.label}} :</b>Future expenses that are paid in advance.
+                        {{form.new_acc_depr_building(class="form-control", placeholder="Accumulated Depreciation -
+                        Building ...")}}
+                    </fieldset>
+
+                    <fieldset id="equipments-field">
+                        <b>{{form.new_equipments.label}} :</b> 
+                        {{form.new_equipments(class="form-control",placeholder="Equipments...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_equip-field">
+                        <b>{{form.new_acc_depr_equip.label}} :</b> 
+                        {{form.new_acc_depr_equip(class="form-control",placeholder="Accumulated
+                        Depreciation-Equipments...")}}
+                    </fieldset>
+
+                    <fieldset id="fnf-field">
+                        <b>{{form.new_fnf.label}} :</b> 
+                        {{form.new_fnf(class="form-control",placeholder="Furnitures and Fixtures...")}}
+                    </fieldset>
+
+                    <fieldset id="acc_depr_fnf-field">
+                        <b>{{form.new_acc_depr_fnf.label}} :</b> 
+                        {{form.new_acc_depr_fnf(class="form-control",placeholder="Accumulated Depreciation -Furnitures and
+                        Fixtures...")}}
+                    </fieldset>
+                    <fieldset id="other_fixed_asset-field">
+                        <b>{{form.new_other_fixed_asset.label}} :</b> 
+                        {{form.new_other_fixed_asset(class="form-control",placeholder="Other Fixed Asset ...")}}
+                    </fieldset>
+
+                    <br>
+                    {{form.submit(class="btn btn-block btn-info")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock content%}

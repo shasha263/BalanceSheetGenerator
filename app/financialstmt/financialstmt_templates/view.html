@@ -1,0 +1,186 @@
+{% extends 'layout.html' %}
+
+{% block title %} View Balance Sheet{% endblock title%}
+{% block content%}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <h2>Balance Sheet Alteration Zone</h2>
+        <div class="col-10 justify-content-center">
+            <h3>Assets:</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"># ID</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Company Name</th>
+                        <th scope="col">Cash</th>
+                        <th scope="col">Account Receivable</th>
+                        <th scope="col">Inventory</th>
+                        <th scope="col">Prepaid Expense</th>
+                        <th scope="col">Notes Receivable</th>
+                        <th scope="col">Other current Asset</th>
+                        <th scope="col">Long Term Investments</th>
+                        <th scope="col">Land</th>
+                        <th scope="col">Building</th>
+                        <th scope="col">(Accumulated Depreciation-Building)</th>
+                        <th scope="col">Equipments</th>
+                        <th scope="col">(Accumulated Depreciation-Equipments)</th>
+                        <th scope="col">Furniture and Fixtures</th>
+                        <th scope="col">(Accumulated Depreciation-Furniture and Fixtures)</th>
+                        <th scope="col">Other Fixed Asset</th>
+                        <th scope="col"><b>Total Asset</b></th>
+                        
+                    </tr>
+                </thead>
+                {% for view in balanceSheetview %}
+
+                <tr>
+                    <th scope="row">{{view.id}}</th>
+                    <td>{{view.date_}}
+                    </td>
+                    <td>{{view.company_name}}
+                    </td>
+                    <td>{{view.cash}}
+                    </td>
+                    <td>{{view.account_receivable}}
+                    </td>
+                    <td>{{view.inventory}}
+                    </td>
+                    <td>{{view.prepaid_expense}}
+                    </td>
+                    <td>{{view.notes_receivable}}
+                    </td>
+                    <td>{{view.other_asset}}
+                    </td>
+                    <td>{{view.lt_investments}}
+                    </td>
+                    <td>{{view.land}}
+                    </td>
+                    <td>{{view.building}}                    
+                    </td>
+                    <td>{{view.acc_depr_building}}
+                    </td>
+                    <td>{{view.equipments}}
+                    </td>
+                    <td>{{view.acc_depr_equip}}
+                    </td>
+                    <td>{{view.fnf}}
+                    </td>
+                    <td>{{view.acc_depr_fnf}}
+                    </td>
+                    <td>{{view.other_fixed_asset}}
+                    </td>
+                    <td>{{view.total_asset}}
+                    </td>
+                    <td><b><a href="{{url_for('financialstmt.assetmodify')}}">Modify</a></b>
+                        <b><a href="{{url_for('financialstmt.deleteinfo')}}">Delete</a></b>
+                        </td>
+                </tr>
+                {% endfor %}
+            </table>
+            
+     
+        <h3>Liabilities:</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"># ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Accounts Payable</th>
+                    <th scope="col">Accrued Wages</th>
+                    <th scope="col">Accrued Payroll Taxes</th>
+                    <th scope="col">Accrued Employee Benefit</th>
+                    <th scope="col">Interest Payable</th>
+                    <th scope="col">Short Term Notes</th>
+                    <th scope="col">Deferred Income</th>
+                    <th scope="col">mortgage</th>
+                    <th scope="col">Other Long Term Liabilities</th>
+                    <th scope="col"><b>Total Liabilities</b></th>                                 
+                </tr>
+            </thead>
+            {% for view in balanceSheetview %}
+
+            <tr>
+                <th scope="row">{{view.id}}</th>
+                <td>{{view.date_}}
+                </td>
+                <td>{{view.company_name}}
+                </td>
+                <td>{{view.accounts_payable}}
+                </td>
+                <td>{{view.accrued_wages}}
+                </td>
+                <td>{{view.accrued_payroll_taxes}}
+                </td>
+                <td>{{view.accrued_employee_benefit}}
+                </td>
+                <td>{{view.interest_payable}}
+                </td>
+                <td>{{view.short_term_notes}}
+                </td>
+                <td>{{view.deferred_income}}
+                </td>
+                <td>{{view.mortgage}}
+                </td>
+                <td>{{view.other_long_term_liabilities}}                    
+                </td>
+                <td>{{view.total_liabilities}}
+                </td>
+                <td><b><a href="{{url_for('financialstmt.liabilitymodify')}}">Modify</a></b>
+                    <b><a href="{{url_for('financialstmt.deleteinfo')}}">Delete</a></b>
+                    </td>               
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Equity:</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"># ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Paid In Capital</th>
+                    <th scope="col">Other Equity</th>
+                    <th scope="col">retained_earnings</th>
+                    <th scope="col">Current Year Earnings</th>
+                    <th scope="col"><b>Total Equity</b></th>                                              
+                </tr>
+            </thead>
+            {% for view in balanceSheetview %}
+
+            <tr>
+                <th scope="row">{{view.id}}</th>
+                <td>{{view.date_}}
+                </td>
+                <td>{{view.company_name}}
+                </td>
+                <td>{{view.paid_in_capital}}
+                </td>
+                <td>{{view.other_equity}}
+                </td>
+                <td>{{view.retained_earnings}}
+                </td>
+                <td>{{view.current_year_earnings}}
+                </td>
+                <td>{{view.total_equity}}
+                </td>
+                <td><b><a href="{{url_for('financialstmt.equitymodify')}}">Modify</a></b>
+                    <b><a href="{{url_for('financialstmt.deleteinfo')}}">Delete</a></b>
+                    </td>             
+
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

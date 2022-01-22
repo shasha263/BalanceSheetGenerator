@@ -117,29 +117,16 @@ class Asset(db.Model):
         self.total_equity=total_equity
         self.total_liabilities_equities=total_liabilities_equities
         self.difference=difference
+   
 
-#class fixed_asset(db.Model):
- #   id=db.Column(db.String,primary_key=True)
-  #  lt_investments=db.Column(db.Float, nullable=False)
-   # land=db.Column(db.Float, nullable=False)
-   # building=db.Column(db.Float, nullable=False)
-   # acc_depr_building=db.Column(db.Float, nullable=False)
-   # equipments=db.Column(db.Float, nullable=False)
-   # acc_depr_equip=db.Column(db.Float, nullable=False)
-   # fnf=db.Column(db.Float, nullable=False)
-   # acc_depr_fnf=db.Column(db.Float, nullable=False)
-   # other_fixed_asset=db.Column(db.Float, nullable=False)
 
-    #def __init__(self, lt_investments,land,building,acc_depr_building,equipments,acc_depr_equip,fnf,acc_depr_fnf,other_fixed_asset):
-     #   self.lt_investments=lt_investments
-      #  self.land=land
-      #  self.building=building
-       # self.acc_depr_building=acc_depr_building
-       # self.equipments=equipments
-       # self.acc_depr_equip=acc_depr_equip
-       # self.fnf=fnf
-       # self.acc_depr_fnf=acc_depr_fnf
-       # self.other_fixed_asset=other_fixed_asset
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
 
 

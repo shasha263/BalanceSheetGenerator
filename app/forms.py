@@ -47,11 +47,11 @@ class asset(FlaskForm):
     lt_investments=FloatField('Long-Term Investments')
     land=FloatField('Land')
     building=FloatField('Building')
-    acc_depr_building=FloatField('(Accumulated Depreciation - Building)')
+    acc_depr_building=FloatField('(Accumulated Depreciation-Building)')
     equipments=FloatField('Equipments')
-    acc_depr_equip=FloatField('(Accumulated Depreciation -Equipments)')
+    acc_depr_equip=FloatField('(Accumulated Depreciation-Equipments)')
     fnf=FloatField('Furniture and Fixtures')
-    acc_depr_fnf=FloatField('(Accumulated Depreciation - Furniture and Fixtures)')
+    acc_depr_fnf=FloatField('(Accumulated Depreciation-Furniture and Fixtures)')
     other_fixed_asset=FloatField('Other Fixed Assets')
     accounts_payable=FloatField('Accounts Payable')
     accrued_wages= FloatField('Accrued Wages')
@@ -69,20 +69,43 @@ class asset(FlaskForm):
     submit=SubmitField('Submit and Continue...')
 
 
-#class fixedasset(FlaskForm): 
- #   lt_investments=FloatField('Long-Term Investments',validators=[DataRequired()])
-  #  land=FloatField('Land',validators=[DataRequired()])
-   # building=FloatField('Building',validators=[DataRequired()])
-    #acc_depr_building=FloatField('Accumulated Depreciation - Building',validators=[DataRequired()])
-    #equipments=FloatField('Equipments',validators=[DataRequired()])
-    #acc_depr_equip=FloatField('Accumulated Depreciation -Equipments',validators=[DataRequired()])
-    #fnf=FloatField('Furniture and Fixtures',validators=[DataRequired()])
-    #acc_depr_fnf=FloatField('Accumulated Depreciation - Furniture and Fixtures',validators=[DataRequired()])
-    #other_fixed_asset=FloatField('Other Fixed Assets',validators=[DataRequired()])
-    #submit=SubmitField('Submit and Continue...')
+class modifyasset(FlaskForm):  
+    new_cash=FloatField('Cash')
+    new_account_receivable=FloatField('Account Receivable')
+    new_inventory=FloatField('Inventory')
+    new_prepaid_expense=FloatField('Prepaid Expenses')
+    new_notes_receivable=FloatField('Notes Receivable')
+    new_other_asset=FloatField('Other Current Assets')
+    new_lt_investments=FloatField('Long-Term Investments')
+    new_land=FloatField('Land')
+    new_building=FloatField('Building')
+    new_acc_depr_building=FloatField('(Accumulated Depreciation-Building)')
+    new_equipments=FloatField('Equipments')
+    new_acc_depr_equip=FloatField('(Accumulated Depreciation-Equipments)')
+    new_fnf=FloatField('Furniture and Fixtures')
+    new_acc_depr_fnf=FloatField('(Accumulated Depreciation-Furniture and Fixtures)')
+    new_other_fixed_asset=FloatField('Other Fixed Assets')
+    submit=SubmitField('Update Asset Info')
 
 
-    
+class modifyLiability(FlaskForm):
+    new_accounts_payable=FloatField('Accounts Payable')
+    new_accrued_wages= FloatField('Accrued Wages')
+    new_accrued_payroll_taxes= FloatField('Accrued Payroll Taxes')
+    new_accrued_employee_benefit= FloatField('Accrued Employee Benefit')
+    new_interest_payable= FloatField('Interest Payable')
+    new_short_term_notes= FloatField('Short Term Notes')
+    new_deferred_income= FloatField('Deferred Income')
+    new_mortgage= FloatField('Mortgage')
+    new_other_long_term_liabilities= FloatField('Other Long Term Liabilities')
+    submit=SubmitField('Submit and Continue...')
 
+
+class modifyEquity(FlaskForm):
+    new_paid_in_capital= FloatField('Paid-in-Capital')
+    new_other_equity= FloatField('Other Equity')
+    new_retained_earnings= FloatField('Retained Earnings')
+    new_current_year_earnings= FloatField('Current Year Earnings')
+    submit=SubmitField('Submit and Continue...')
 
 

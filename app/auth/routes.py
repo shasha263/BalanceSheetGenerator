@@ -80,15 +80,11 @@ def profile():
                 current_user.username=form.newusername.data
                 db.session.commit()
                 flash('Your user name has been updated')
-                return redirect(url_for('auth.userinfo'))               
-
+                return redirect(url_for('auth.userinfo'))             
         else: 
             flash('Incorrect Password, Please try again')
-            return redirect(url_for('auth.userinfo'))
-                
-
+            return redirect(url_for('auth.userinfo'))              
     return render_template('profile.html',form=form)
-
 
 
 @auth.route('/change_password',methods=['GET','POST'])
