@@ -1,0 +1,635 @@
+{% extends 'layout.html' %}
+
+{% block title %} Balance Sheet{% endblock title%}
+{% block content%}
+
+
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="card-header justify-content-center">
+      <h2>{{ form.company_name }} </h2>
+      <h3>Balance Sheet</h3>
+      <h3>For the Period Ending {{ form.date_ }}</h3>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <b>
+            <h2>Assets</h2>
+          </b>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-4">
+          <b>
+            <h5>Current Assets:</h5>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+          </div>
+
+          <div class="col-2">
+          </div>
+          <div class="col">Cash:</div>
+          <div class="col">${{ form.cash }}</div>
+          <div class="w-100"></div>
+          <div class="col-2">
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col">Account Receivable</div>
+          <div class="col">${{ form.account_receivable }}</div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+          </div>
+
+          <div class="col-2">
+          </div>
+          <div class="col">Inventory</div>
+          <div class="col">${{form.inventory}}</div>
+          <div class="w-100"></div>
+          <div class="col-2">
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col">Prepaid Expense</div>
+          <div class="col">${{form.prepaid_expense}}</div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+          </div>
+
+          <div class="col-2">
+          </div>
+          <div class="col">Notes Receivable</div>
+          <div class="col">${{form.notes_receivable}}</div>
+          <div class="w-100"></div>
+          <div class="col-2">
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col">Other Asset</div>
+          <div class="col">${{form.other_asset}}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+        </div>
+
+
+        <div class="card-body text-right">
+          <p class="card-text-right" background-color="grey">
+          <h6>Total Current Asset = $ {{form.total_current_asset}}</h6>
+          </p>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-4">
+              <b>
+                <h5>Fixed Assets:</h5>
+              </b>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+              </div>
+
+              <div class="col-2">
+              </div>
+              <div class="col">Long-Term Investment:</div>
+              <div class="col">${{form.lt_investments}}</div>
+              <div class="w-100"></div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col">Land</div>
+              <div class="col">${{form.land}}</div>
+            </div>
+          </div>
+
+
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+              </div>
+
+              <div class="col-2">
+              </div>
+              <div class="col">Building:</div>
+              <div class="col">${{form.building}}</div>
+              <div class="w-100"></div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col">(Accumulated Depreciation-Building)</div>
+              <div class="col">${{form.acc_depr_building}}</div>
+            </div>
+          </div>
+
+
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+              </div>
+
+              <div class="col-2">
+              </div>
+              <div class="col">Equipments:</div>
+              <div class="col">${{form.equipments}}</div>
+              <div class="w-100"></div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col">(Accumulated Depreciation-Equipments)</div>
+              <div class="col">${{form.acc_depr_equip}}</div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col">Furniture and Fixtures</div>
+              <div class="col">${{form.fnf}}</div>
+              <div class="w-100"></div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col">(Accumulated Depreciation-Furniture and Fixtures)</div>
+              <div class="col">${{form.acc_depr_fnf}}</div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col">Other Fixed Asset:</div>
+              <div class="col">${{form.other_fixed_asset}}</div>
+              <div class="w-100"></div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="card-body text-right">
+              <p class="card-text-right" background-color="grey">
+              <h6>Total Fixed Asset = $ {{form.total_fixed_asset}}</h6>
+              </p>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="card-body text-right">
+                  <div class="card bg-dark text-white">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title">Total Asset = $ {{form.total_asset}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row"></div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <b>
+                    <h2></h2>
+                  </b>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <b>
+                    <h2>Liabilities & Equity</h2>
+                  </b>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-4">
+                  <b>
+                    <h5>Current Liabilities:</h5>
+                  </b>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                  </div>
+
+                  <div class="col-2">
+                  </div>
+                  <div class="col">Accounts Payable:</div>
+                  <div class="col">${{form.accounts_payable}}</div>
+                  <div class="w-100"></div>
+                  <div class="col-2">
+                  </div>
+                  <div class="col-2">
+                  </div>
+                  <div class="col">Accrued Wages</div>
+                  <div class="col">${{form.accrued_wages}}</div>
+                </div>
+              </div>
+
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                  </div>
+
+                  <div class="col-2">
+                  </div>
+                  <div class="col">Accrued Payroll Taxes</div>
+                  <div class="col">${{form.accrued_payroll_taxes}}</div>
+                  <div class="w-100"></div>
+                  <div class="col-2">
+                  </div>
+                  <div class="col-2">
+                  </div>
+                  <div class="col">Accrued Employee Benefit</div>
+                  <div class="col">${{form.accrued_employee_benefit}}</div>
+                </div>
+              </div>
+
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                  </div>
+
+                  <div class="col-2">
+                  </div>
+                  <div class="col">Interest Payable</div>
+                  <div class="col">${{form.interest_payable}}</div>
+                  <div class="w-100"></div>
+                  <div class="col-2">
+                  </div>
+                  <div class="col-2">
+                  </div>
+                  <div class="col">Short Term Notes</div>
+                  <div class="col">${{form.short_term_notes}}</div>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                  </div>
+
+                  <div class="col-2">
+                  </div>
+                  <div class="col">Deferred Income</div>
+                  <div class="col">${{form.deferred_income}}</div>
+                  <div class="w-100"></div>
+                  <div class="col-2">
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                </div>
+                <div class="card-body text-right">
+                  <p class="card-text-right" background-color="grey">
+                  <h6>Total Current Liabilities = $ {{form.total_current_liabilities}}</h6>
+                  </p>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-4">
+                      <b>
+                        <h5>Long-Term Liabilities:</h5>
+                      </b>
+                    </div>
+                  </div>
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-2">
+                      </div>
+
+                      <div class="col-2">
+                      </div>
+                      <div class="col">Mortgage:</div>
+                      <div class="col">${{form.mortgage}}</div>
+                      <div class="w-100"></div>
+                      <div class="col-2">
+                      </div>
+                      <div class="col-2">
+                      </div>
+                      <div class="col">Other Long Term Liabilities</div>
+                      <div class="col">${{form.other_long_term_liabilities}}</div>
+                    </div>
+                  </div>           
+
+                  
+                  <div class="row">
+                    <div class="col-2">
+                    </div>
+
+
+                    <div class="card-body text-right">
+                      <p class="card-text-right" background-color="grey">
+                      <h6>Total Long Term Liabilities = $ {{form.total_long_term_liabilities}}</h6>
+                      </p>
+                    </div>
+
+                    <div class="container">
+                      <div class="row">
+                        <div class="card-body text-right">
+
+                          <div class="card bg-dark text-white">
+                            <div class="card-img-overlay">
+                              <h5 class="card-title">Total Liabilities = $ {{form.total_liabilities}}</h5>
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="container">
+                      <div class="row">
+                        <div class="col">
+                          <b>
+                            <h2></h2>
+                          </b>
+                        </div>
+                
+                      </div>
+                      <div class="row">
+                        <div class="col-2">
+                        </div>
+                        <div class="col-4">
+                          <b>
+                            <h5>Equities:</h5>
+                          </b>
+                        </div>
+                      </div>
+                
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-2">
+                          </div>
+                
+                          <div class="col-2">
+                          </div>
+                          <div class="col">Paid In Capital:</div>
+                          <div class="col">${{form.paid_in_capital}}</div>
+                          <div class="w-100"></div>
+                          <div class="col-2">
+                          </div>
+                          <div class="col-2">
+                          </div>
+                          <div class="col">Other Equity</div>
+                          <div class="col">${{form.other_equity}}</div>
+                        </div>
+                      </div>
+                
+                
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-2">
+                          </div>
+                
+                          <div class="col-2">
+                          </div>
+                          <div class="col">Retained Earnings</div>
+                          <div class="col">${{form.retained_earnings}}</div>
+                          <div class="w-100"></div>
+                          <div class="col-2">
+                          </div>
+                          <div class="col-2">
+                          </div>
+                          <div class="col">Current Year Earnings</div>
+                          <div class="col">${{form.current_year_earnings}}</div>
+                        </div>
+                      </div>
+                
+                
+                     
+                
+                      <div class="row">
+                        <div class="col-2">
+                        </div>
+                
+                
+                        <div class="card-body text-right">
+                          <p class="card-text-right" background-color="grey">
+                          <h5>Total Equity = $ {{form.total_equity}}</h5>
+                          </p>
+                        </div>
+                
+                        <div class="container">
+                          <div class="row">
+                            <div class="col">
+                            </div>
+                
+                          </div>
+                
+                                
+                
+                      
+                
+                
+                
+                            <div class="container">
+                              <div class="row">
+                                <div class="card-body text-right">
+                
+                                  <div class="card bg-dark text-white">
+                                    <div class="card-img-overlay">
+                                      <h5 class="card-title">Total Liabilities & Equities = $ {{form.total_liabilities_equities}}</h5>
+                
+                                    </div>
+                                  </div>
+                
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+                                </div>
+                    
+                              </div>
+
+
+                            <div class="container">
+                              <div class="row">
+                                <div class="card-body text-right">
+                
+                                  <div class="card bg-dark text-white">
+                                    <div class="card-img-overlay">
+                                      
+                
+                                    </div>
+                                    <div></div>
+                                  </div>
+                
+                                </div>
+                              </div>
+                            </div>
+
+                            
+                                
+                              
+                            <div class="container">
+                              <div class="row">
+                                <div class="card-body text-right">
+                
+                                  <div class="card bg-dark text-white">
+                                    <div class="card-img-overlay">
+                                      <h5 class="card-title"></h5>                
+                                    </div>
+                                    <div></div>
+                                  </div>
+                                  <div class="card bg-dark text-white">
+                                    <div class="card-img-overlay">
+                                      <h5 class="card-title"></h5>                
+                                    </div>
+                                    <div></div>
+                                  </div>
+                
+                                </div>
+                              </div>
+                            </div>
+                
+
+
+                            <div class="container">
+                              <div class="row">
+                             
+
+                                <div class="col"></div>
+                                <div class="col"></div>
+                                <div class="w-100"></div>
+                                <div class="col-2">
+                                </div>
+                                <div class="col-2">
+                                </div>
+                                <div class="col"> </div>
+                                <div class="col"></div>
+                              </div>
+                            </div>
+
+
+                            <div class="container">
+                              <div class="row">
+                                <div class="card-body text-right">
+                
+                                  <div class="card bg-dark text-white">
+                                    <div class="card-img-overlay">
+                                      <h6 class="card-title"></h6>
+                
+                                    </div>
+                                    <div></div>
+                                  </div>
+                
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+<div class="justify-content-center">
+                  <a class="btn btn-dark justify-content-center" href="{{url_for('home')}}" role="button">Exit</a>
+
+
+                  <a class="btn btn-dark justify-content-center" href="{{url_for('financialstmt.view')}}" role="button"> Modify or Delete?</a>
+                </div>
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="card-body text-right">
+      
+                        <div class="card bg-dark text-white">
+                          <div class="card-img-overlay">
+                            <h6 class="card-title"></h6>
+      
+                          </div>
+                          <div></div>
+                        </div>
+      
+                      </div>
+                    </div>
+                  </div>
+
+                  </div>
+
+                </div>
+
+
+
+
+                {% endblock content %}

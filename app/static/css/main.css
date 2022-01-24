@@ -38,3 +38,125 @@ side{
 #total{
     text-align: right;
 }
+
+
+#nav-link{
+    background-color: black;  
+    font-size: small;  
+    color: white;
+}
+
+.nav{
+display: inline;
+margin:0;
+font-size: 15px;
+color:white;
+display:flex; justify-content:left ; flex-direction:row;
+align-items: flex-start;
+}
+
+.btn_right{ 
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+} 
+.navbar{
+font-size: 1ch;
+color:black
+}
+  
+  
+
+  main{
+    width: 60%;
+    float: left;
+    height:100%;
+     
+ }
+
+side{
+    width: 40%;
+    float: right;
+    height:100%;
+    padding-right: 20px;
+}
+
+#btn{
+  color: rgb(22, 5, 5);
+  border-color: rgb(44, 3, 10);
+}
+
+#btn1{
+  background-color: white;
+  color: rgb(22, 5, 5);
+}
+
+#btn3{
+  background-color: #719fb6;
+  color: rgb(26, 7, 7);
+}
+
+#btn4{
+  color: rgb(26, 7, 7);
+}
+
+#dollarsign {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -78%);
+}
+  
+#landind_middle1{
+  background-color: #719fb6;
+  padding-top: 20px;
+  color: black;
+  border-color: grey;
+  border-width: 5px;
+}
+
+#landind_middle{
+  padding-top: 20px;
+}
+  
+.border{
+  border: darkgrey;
+ border-radius: 20px;
+ border-width: 20px;
+ padding-top: 50px;
+ padding-bottom: 50px;
+ padding-left: 20px;
+}
+
+.row{
+ margin-top: 50px;
+}
+#footer-button{
+ padding-left: 350px;
+}
+
+
+
+#task-management{
+ padding-bottom: 30px;
+}
+
+#border-2{
+ border-width: 50px;
+ padding-bottom: 100px;
+ 
+}
+
+#mid-page2{
+  padding-top: 40px;
+  background-color:#719fb6;
+  color: white;
+}
+#btn6{
+  border-color: white;
+}
+
+
+#warehouse{
+    background-color:#719fb6;
+}

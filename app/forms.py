@@ -69,6 +69,12 @@ class asset(FlaskForm):
     submit=SubmitField('Submit and Continue...')
 
 
+class search(FlaskForm):
+    date_1=DateField('Balance Sheet Date',validators=[DataRequired()])
+    submit=SubmitField('Submit and Continue...')
+
+
+
 class modifyasset(FlaskForm):  
     new_cash=FloatField('Cash')
     new_account_receivable=FloatField('Account Receivable')

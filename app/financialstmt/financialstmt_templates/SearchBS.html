@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %} View Balance Sheet{% endblock title%}
+{% block content%}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        
+        <div class="col-6 justify-content-center">
+            <h2>Balance Sheet WareHouse</h2>
+            <h3>Balance Sheet:</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"># ID</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Company Name</th>
+                        
+                    </tr>
+                </thead>
+                {% for k in form %}
+                <tr>
+                    <th scope="row">{{k.id}}</th>
+                    <td>{{k.date_}}
+                    </td>
+                    <td>{{k.company_name}}
+                    </td>
+                    
+                    <td><b><a href="{{url_for('financialstmt.searchBSview', id=k.id)}}">View</a></b>
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -73,8 +73,8 @@
                     </td>
                     <td>{{view.total_asset}}
                     </td>
-                    <td><b><a href="{{url_for('financialstmt.assetmodify')}}">Modify</a></b>
-                        <b><a href="{{url_for('financialstmt.deleteinfo')}}">Delete</a></b>
+                    <td><b><a href="{{url_for('financialstmt.assetmodify', id=view.id)}}">Modify</a></b>
+                        <b><a href="{{url_for('financialstmt.deleteinfo',id=view.id)}}">Delete</a></b>
                         </td>
                 </tr>
                 {% endfor %}
@@ -129,8 +129,8 @@
                 </td>
                 <td>{{view.total_liabilities}}
                 </td>
-                <td><b><a href="{{url_for('financialstmt.liabilitymodify')}}">Modify</a></b>
-                    <b><a href="{{url_for('financialstmt.deleteinfo')}}">Delete</a></b>
+                <td><b><a href="{{url_for('financialstmt.liabilitymodify',id=view.id)}}">Modify</a></b>
+                    <b><a href="{{url_for('financialstmt.deleteinfo',id=view.id)}}">Delete</a></b>
                     </td>               
             </tr>
             {% endfor %}
@@ -168,8 +168,8 @@
                 </td>
                 <td>{{view.total_equity}}
                 </td>
-                <td><b><a href="{{url_for('financialstmt.equitymodify')}}">Modify</a></b>
-                    <b><a href="{{url_for('financialstmt.deleteinfo')}}">Delete</a></b>
+                <td><b><a href="{{url_for('financialstmt.equitymodify',id=view.id)}}">Modify</a></b>
+                    <b><a href="{{url_for('financialstmt.deleteinfo',id=view.id)}}">Delete</a></b>
                     </td>             
 
             </tr>
@@ -177,7 +177,7 @@
         </table>
 
 
-        </div>
+       
     </div>
 </div>
 
