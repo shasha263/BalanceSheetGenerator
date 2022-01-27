@@ -59,7 +59,7 @@ def signup():
 @login_required
 def logout():
     logout_user()
-    flash('You have been Logged out.')
+    flash('You have been Logged out.',category="info")
     return redirect(url_for('auth.signin'))
 
 @auth.route('/userinfo')
@@ -79,10 +79,10 @@ def profile():
             else:
                 current_user.username=form.newusername.data
                 db.session.commit()
-                flash('Your user name has been updated')
+                flash('Your user name has been updated',category="info")
                 return redirect(url_for('auth.userinfo'))             
         else: 
-            flash('Incorrect Password, Please try again')
+            flash('Incorrect Password, Please try again',category="danger")
             return redirect(url_for('auth.userinfo'))              
     return render_template('profile.html',form=form)
 
@@ -99,6 +99,6 @@ def change_password():
             return redirect(url_for('auth.userinfo'))           
 
         else: 
-            flash('Incorrect Username, Please try again')
+            flash('Password did not match, Please try again',category="warning")
             return redirect(url_for('auth.userinfo'))    
     return render_template('change_password.html',form=form)

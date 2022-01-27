@@ -155,6 +155,7 @@ def deleteinfo(id):
         return flash('Delete failed : No Info of that ID exist',category='warning')
     db.session.delete(p)
     db.session.commit()
+    flash('Your entity has been deleted..', category="info")
     return redirect(url_for('financialstmt.view'))
 
 
@@ -173,5 +174,15 @@ def searchBSview(id):
 
     #forms=Asset.query(id).filter(Asset.id == request.form["id"])
     return render_template('SearchBSview.html',form=form)
+
+ 
+@financialstmt.route('/chart',methods=['GET'])
+@login_required
+def display_chart():
+    asset=db.session.query(Asset.total_asset,Asset.total_liabilities_equities).group_by(Asset.id)  
+    new_asset=[]
+    for i in asset:
+        new_asset.append(i)
+    return render_template('display_chart.html',asset=new_asset)
 
 
