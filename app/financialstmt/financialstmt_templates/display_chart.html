@@ -5,41 +5,119 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
+        integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Chart.JS</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 
-    <div class="col-xs-10 col-sm-6 col-md-6">
-        <div class="card card-style mb-2">
-            <div class="card-body">
-                <div class="chart-container" style="position: relative;">
-                    <canvas id="Asset_vs_Liability_Equity"></canvas>
+
+<body>
+    <div class="container-fluid">
+        <h1>Balance Sheet Graphical Analysis</h1>
+        <div class="row justify-content-center">            
+
+            <div class="col-xs-10 col-sm-6 col-md-6">
+                <div>
+                    <h3>Total Asset vs Total Liabilities & Equity</h3>
+                </div>
+                <div class="card card-style mb-2">
+                    <div class="card-body">
+                        <div class="chart-container" style="position: relative;">
+                            <canvas id="Asset_vs_Liability_Equity"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-10 col-sm-6 col-md-6">
+                <div>
+                    <h3>Asset Allocation</h3>
+                </div>
+
+                <div class="card card-style mb-2">
+                    <div class="card-body">
+                        <div class="chart-container" style="position: relative;">
+                            <canvas id="totalasset"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-xs-10 col-sm-6 col-md-6">
+                <div>
+                    <h3>Liability Quota</h3>
+                </div>
+                <div class="card card-style mb-2">
+                    <div class="card-body">
+                        <div class="chart-container" style="position: relative;">
+                            <canvas id="total_Liability"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-xs-10 col-sm-6 col-md-6">
+                <div>
+                    <h3>Equity Weightage</h3>
+                </div>
+
+                <div class="card card-style mb-2">
+                    <div class="card-body">
+                        <div class="chart-container" style="position: relative;">
+                            <canvas id="total_equity"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div></div>
+
+
+        <div class="justify-content-center">
+            <a class="btn btn-dark justify-content-center"
+              href="{{url_for('financialstmt.searchBS')}}" role="button">Exit</a>
+
+
+            <a class="btn btn-dark justify-content-center" href="{{url_for('financialstmt.view')}}"
+              role="button"> Modify or Delete?</a>
+          </div>
+
+          <div></div>
+          <div></div>
     </div>
 
+
     {% block javascript %}
-<script>
-        let new_asset=asset;
+    <script>
+        let new_asset = {{ assetvsliabequity| tojson }};
+        //let new_asset=asset
+
         let Asset_vs_Liability_Equity_chart = new Chart(Asset_vs_Liability_Equity, {
             type: 'pie',
             data: {
-            labels: ['Asset', 'Liability&Equity'],
+                labels: ['Asset', 'Liability&Equity'],
                 datasets: [{
-                    label: "Asset Vs Liability&Equity",
+                    label: " Asset vs LiabilityandEquity",
                     data: new_asset,
-                    backgroundColor: ['#5DA5DA ', '#FAA43A', '#60BD68',
-                        '#B276B2', '#E16851', '#FB8267'],
+                    backgroundColor: ['#5DA5DA ', '#B276B2', '#E16851', '#FB8267', '#FAA43A', '#60BD68'],
 
                     borderWidth: 1,
                     hoverBorderColor: "black",
@@ -49,43 +127,188 @@
                 }],
             },
             options: {
-                    title: {
-                        display: true,
-                            text: "Asset Vs Liability&Equity",
-                                fontSize: 20,
+                title: {
+                    display: true,
+                    text: "Asset Vs Liability&Equity",
+                    fontSize: 20,
+                },
+                legend: {
+                    position: "right",
+                    labels: {
+                        fontColor: "gray"
                     },
-                    legend: {
-                        position: "right",
-                            labels: {
-                            fontColor: "gray"
-                        },
-                        display: true,
-                    },
+                    display: true,
+                },
 
-                    elements: {
-                        hitRadius: 3,
-                    }
+                elements: {
+                    hitRadius: 3,
+                }
             }
         })
 
-   
-</script>
+        let total_asset = {{ asset| tojson }};
+        //let new_asset=asset
+
+        let total_asset_chart = new Chart(totalasset, {
+            type: 'pie',
+            data: {
+                labels: ['Cash', 'Account Receivable', 'Inventory', 'Prepaid Expense', 'Notes Receivable',
+                    'Long Term Investments', 'Land', 'Building', 'Equipments', 'Furniture and Fixtures'],
+                datasets: [{
+                    label: " Asset vs LiabilityandEquity",
+                    data: total_asset,
+                    backgroundColor: ['#5DA5DA ', '#FAA43A', '#60BD68',"#6970d5",
+                        '#B276B2', '#E16851', '#FB8267', '#6970d5', '#f38b4a', '#56d798'],
+
+                    borderWidth: 1,
+                    hoverBorderColor: "black",
+                    hoverBorderWidth: 2,
+                    hoverBackgroundColor: ["#f38b4a", "#56d798", "#ff8397", "#6970d5"],
+                    pointHoverRadius: 5
+                }],
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Asset Vs Liability&Equity",
+                    fontSize: 20,
+                },
+                legend: {
+                    position: "right",
+                    labels: {
+                        fontColor: "gray"
+                    },
+                    display: true,
+                },
+
+                elements: {
+                    hitRadius: 3,
+                }
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+        let new_Liability = {{ liability| tojson }};
+        //let new_asset=asset
+
+        let Liability_chart = new Chart(total_Liability, {
+            type: 'pie',
+            data: {
+
+               
+                labels: ['Accounts Payable', 'Accrued Wages','Accrued Payroll Taxes','Accrued Employee Benefit',
+            'Interest Payable','Short Term Notes','Deferred Income','Mortgage'],
+                datasets: [{
+                    label: " Total Liability",
+                    data: new_Liability,
+                    backgroundColor: ['#5DA5DA ', '#FAA43A', '#60BD68',
+                        '#B276B2', '#E16851', '#ff8397', '#FB8267', '#6970d5'],
+
+                    borderWidth: 1,
+                    hoverBorderColor: "black",
+                    hoverBorderWidth: 2,
+                    hoverBackgroundColor: 'rgba(154, 245, 140)',
+                    pointHoverRadius: 5
+                }],
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Liability",
+                    fontSize: 20,
+                },
+                legend: {
+                    position: "right",
+                    labels: {
+                        fontColor: "gray"
+                    },
+                    display: true,
+                },
+
+                elements: {
+                    hitRadius: 3,
+                }
+            }
+        })
+
+
+
+
+
+
+
+        let new_equity = {{ equity| tojson }};
+        //let new_asset=asset
+        
+
+        let total_equity_chart = new Chart(total_equity, {
+            type: 'pie',
+            data: {
+                labels: ['Paid In Capital', 'Retained Earnings', 'Current Year Earnings'],
+                datasets: [{
+                    label: "Equity",
+                    data: new_equity,
+                    backgroundColor: [ '#FB8267', '#6970d5',  '#56d798'],
+
+                    borderWidth: 1,
+                    hoverBorderColor: "black",
+                    hoverBorderWidth: 2,
+                    hoverBackgroundColor: ["#f38b4a", "#56d798", "#ff8397", "#6970d5"],
+                    pointHoverRadius: 5
+                }],
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "quity",
+                    fontSize: 20,
+                },
+                legend: {
+                    position: "right",
+                    labels: {
+                        fontColor: "gray"
+                    },
+                    display: true,
+                },
+
+                elements: {
+                    hitRadius: 3,
+                }
+            }
+        })
+    
+
+
+    </script>
 
 
     {% endblock javascript %}
-    
-      
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
 
 
 {% endblock content %}
-
-
-
-

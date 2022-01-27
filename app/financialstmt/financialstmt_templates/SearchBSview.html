@@ -375,9 +375,9 @@
                       <div class="col">Other Long Term Liabilities</div>
                       <div class="col">${{form.other_long_term_liabilities}}</div>
                     </div>
-                  </div>           
+                  </div>
 
-                  
+
                   <div class="row">
                     <div class="col-2">
                     </div>
@@ -422,7 +422,7 @@
                             <h2></h2>
                           </b>
                         </div>
-                
+
                       </div>
                       <div class="row">
                         <div class="col-2">
@@ -433,12 +433,12 @@
                           </b>
                         </div>
                       </div>
-                
+
                       <div class="container">
                         <div class="row">
                           <div class="col-2">
                           </div>
-                
+
                           <div class="col-2">
                           </div>
                           <div class="col">Paid In Capital:</div>
@@ -452,13 +452,13 @@
                           <div class="col">${{form.other_equity}}</div>
                         </div>
                       </div>
-                
-                
+
+
                       <div class="container">
                         <div class="row">
                           <div class="col-2">
                           </div>
-                
+
                           <div class="col-2">
                           </div>
                           <div class="col">Retained Earnings</div>
@@ -472,103 +472,104 @@
                           <div class="col">${{form.current_year_earnings}}</div>
                         </div>
                       </div>
-                
-                
-                     
-                
+
+
+
+
                       <div class="row">
                         <div class="col-2">
                         </div>
-                
-                
+
+
                         <div class="card-body text-right">
                           <p class="card-text-right" background-color="grey">
                           <h5>Total Equity = $ {{form.total_equity}}</h5>
                           </p>
                         </div>
-                
+
                         <div class="container">
                           <div class="row">
                             <div class="col">
                             </div>
-                
+
                           </div>
-                
-                                
-                
-                      
-                
-                
-                
-                            <div class="container">
-                              <div class="row">
-                                <div class="card-body text-right">
-                
-                                  <div class="card bg-dark text-white">
-                                    <div class="card-img-overlay">
-                                      <h5 class="card-title">Total Liabilities & Equities = $ {{form.total_liabilities_equities}}</h5>
-                
-                                    </div>
+
+
+
+
+
+
+
+                          <div class="container">
+                            <div class="row">
+                              <div class="card-body text-right">
+
+                                <div class="card bg-dark text-white">
+                                  <div class="card-img-overlay">
+                                    <h5 class="card-title">Total Liabilities & Equities = $
+                                      {{form.total_liabilities_equities}}</h5>
+
                                   </div>
-                
                                 </div>
+
                               </div>
+                            </div>
+                          </div>
+
+
+                          <div class="container">
+                            <div class="row">
+                              <div class="col">
+                              </div>
+
                             </div>
 
 
                             <div class="container">
                               <div class="row">
-                                <div class="col">
+                                <div class="card-body text-right">
+
+                                  <div class="card bg-dark text-white">
+                                    <div class="card-img-overlay">
+
+
+                                    </div>
+                                    <div></div>
+                                  </div>
+
                                 </div>
-                    
                               </div>
+                            </div>
+
+
 
 
                             <div class="container">
                               <div class="row">
                                 <div class="card-body text-right">
-                
+
                                   <div class="card bg-dark text-white">
                                     <div class="card-img-overlay">
-                                      
-                
+                                      <h5 class="card-title"></h5>
                                     </div>
                                     <div></div>
                                   </div>
-                
+                                  <div class="card bg-dark text-white">
+                                    <div class="card-img-overlay">
+                                      <h5 class="card-title"></h5>
+                                    </div>
+                                    <div></div>
+                                  </div>
+
                                 </div>
                               </div>
                             </div>
 
-                            
-                                
-                              
-                            <div class="container">
-                              <div class="row">
-                                <div class="card-body text-right">
-                
-                                  <div class="card bg-dark text-white">
-                                    <div class="card-img-overlay">
-                                      <h5 class="card-title"></h5>                
-                                    </div>
-                                    <div></div>
-                                  </div>
-                                  <div class="card bg-dark text-white">
-                                    <div class="card-img-overlay">
-                                      <h5 class="card-title"></h5>                
-                                    </div>
-                                    <div></div>
-                                  </div>
-                
-                                </div>
-                              </div>
-                            </div>
-                
 
 
                             <div class="container">
                               <div class="row">
-                             
+
 
                                 <div class="col"></div>
                                 <div class="col"></div>
@@ -586,15 +587,15 @@
                             <div class="container">
                               <div class="row">
                                 <div class="card-body text-right">
-                
+
                                   <div class="card bg-dark text-white">
                                     <div class="card-img-overlay">
                                       <h6 class="card-title"></h6>
-                
+
                                     </div>
                                     <div></div>
                                   </div>
-                
+
                                 </div>
                               </div>
                             </div>
@@ -602,34 +603,26 @@
 
 
 
-<div class="justify-content-center">
-                  <a class="btn btn-dark justify-content-center" href="{{url_for('financialstmt.searchBS')}}" role="button">Exit</a>
+                            <div class="justify-content-center">
+                              <a class="btn btn-dark justify-content-center"
+                                href="{{url_for('financialstmt.searchBS')}}" role="button">Exit</a>
 
 
-                  <a class="btn btn-dark justify-content-center" href="{{url_for('financialstmt.view')}}" role="button"> Modify or Delete?</a>
-                </div>
+                              <a class="btn btn-dark justify-content-center" href="{{url_for('financialstmt.view')}}"
+                                role="button"> Modify or Delete?</a>
+                            </div>
 
-                  <div class="container">
-                    <div class="row">
-                      <div class="card-body text-right">
-      
-                        <div class="card bg-dark text-white">
-                          <div class="card-img-overlay">
-                            <h6 class="card-title"></h6>
-      
+
+
                           </div>
-                          <div></div>
                         </div>
-      
                       </div>
+
                     </div>
-                  </div>
 
                   </div>
 
-                </div>
 
 
 
-
-                {% endblock content %}
+                  {% endblock content %}

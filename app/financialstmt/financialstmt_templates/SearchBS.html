@@ -28,7 +28,9 @@
                     
                     <td><b><a href="{{url_for('financialstmt.searchBSview', id=k.id)}}">View</a></b>
                     </td>
-                   
+                    <td><b><a href="{{url_for('financialstmt.display_chart', id=k.id)}}">Grapical Analysis</a></b>
+                    </td>
+
                 </tr>
 
                 {% endfor %}

@@ -5,7 +5,7 @@ from psycopg2 import connect, sql
 from app.models import db,Asset
 from app.forms import asset,modifyasset,modifyLiability,modifyEquity,search
 from flask_login import login_required
-
+import json
 financialstmt= Blueprint('financialstmt',__name__, template_folder='financialstmt_templates')
 
 @financialstmt.route('/totalasset' ,methods=['GET','POST'])
@@ -176,13 +176,20 @@ def searchBSview(id):
     return render_template('SearchBSview.html',form=form)
 
  
-@financialstmt.route('/chart',methods=['GET'])
+@financialstmt.route('/chart/<string:id>',methods=['GET'])
 @login_required
-def display_chart():
-    asset=db.session.query(Asset.total_asset,Asset.total_liabilities_equities).group_by(Asset.id)  
-    new_asset=[]
-    for i in asset:
-        new_asset.append(i)
-    return render_template('display_chart.html',asset=new_asset)
+def display_chart(id):
 
+    asset=Asset.query.get(id)
+    
+    context={
+        "assetvsliabequity": [asset.total_asset,asset.total_liabilities_equities] ,
+        "asset" : [asset.cash,asset.account_receivable,asset.inventory,asset.prepaid_expense,asset.notes_receivable,asset.lt_investments,
+        asset.land, asset.building,asset.equipments,asset.fnf],
+        "liability":[asset.accounts_payable,asset.accrued_wages,asset.accrued_payroll_taxes,asset.accrued_employee_benefit,
+        asset.interest_payable,asset.short_term_notes,asset.deferred_income, asset.mortgage],
+        "equity" : [asset.paid_in_capital,asset.retained_earnings,asset.current_year_earnings],
+    }
 
+    return render_template('display_chart.html', **context)
+ 
