@@ -88,7 +88,7 @@ class Asset(db.Model):
         self.notes_receivable=notes_receivable
         self.other_asset=other_asset
         self.lt_investments=lt_investments
-        self.land=land
+        self.land= land
         self.building=building
         self.acc_depr_building=acc_depr_building
         self.equipments=equipments
@@ -117,15 +117,19 @@ class Asset(db.Model):
 
     def calc(self):
         self.total_current_asset= self.cash + self.account_receivable + self.inventory + self.prepaid_expense + self.notes_receivable +self.other_asset
-        self.total_fixed_asset= self.lt_investments+self.land+self.building-(self.acc_depr_building)+ self.equipments-(self.acc_depr_equip)+self.fnf - (self.acc_depr_fnf)+ self.other_fixed_asset
+        self.depr=self.acc_depr_building+self.acc_depr_fnf+self.acc_depr_equip
+        self.total_fixed_asset = self.lt_investments + self.land + self.building + self.equipments + self.fnf + self.other_fixed_asset+(self.depr)
+        print(self.land)
+        print(self.total_fixed_asset)
+        
         self.total_asset= self.total_current_asset + self.total_fixed_asset
+        print(self.total_asset)
         
         self.total_current_liabilities= self.accounts_payable + self.accrued_wages + self.accrued_payroll_taxes + self.accrued_employee_benefit + self.interest_payable + self.short_term_notes + self.deferred_income
         self.total_long_term_liabilities= self.mortgage + self.other_long_term_liabilities
         self.total_liabilities = self.total_current_liabilities + self.total_long_term_liabilities
-        print(self.total_equity)
         self.total_equity = self.paid_in_capital + self.other_equity + self.retained_earnings + self.current_year_earnings
-        print(self.total_equity)
+       
 
 
         self.total_liabilities_equities= self.total_liabilities + self.total_equity

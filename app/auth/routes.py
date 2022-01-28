@@ -1,7 +1,6 @@
 from flask import Blueprint,redirect,request,url_for,flash
 from flask.templating import render_template
 from app.forms import Signupform,Signinform,updateUsernameForm,updatePasswordForm
-
 from app.models import db,User
 from flask_login import login_user, logout_user,current_user,login_required
 from werkzeug.security import check_password_hash,generate_password_hash
@@ -20,10 +19,10 @@ def signin():
                 flash('Username or Password did not match', category='danger')
                 return redirect(url_for('auth.signin'))
             login_user(user)
-            flash(f'Thanks for loggin in {user.username}.')
+            flash(f'Thanks for loggin in {user.username}.',category="info")
             return redirect(url_for('home'))
         else:
-            flash('Incorrect User name and Password')
+            flash('Incorrect User name and Password',category="danger")
             return redirect(url_for('auth.signin'))
     return render_template('signin.html', form=form)  
 
@@ -33,10 +32,10 @@ def signup():
     form= Signupform()
     if request.method=='POST':
         if form.validate_on_submit():
-            print("Correct User Input")      
-            print(form.username.data,form.first_name.data,form.last_name.data)      
+            #print("Correct User Input")      
+            #print(form.username.data,form.first_name.data,form.last_name.data)      
             new_user=User(form.first_name.data,form.last_name.data,form.email.data,form.username.data,form.password.data)
-            print(f'New user created-{new_user.__dict__}')
+            #print(f'New user created-{new_user.__dict__}')
             try:
                 db.session.add(new_user)
                 db.session.commit()
@@ -94,7 +93,7 @@ def change_password():
     if request.method =='POST':
         if form.validate_on_submit():
             current_user.password=generate_password_hash(form.newpassword.data  ) 
-            flash('Your password has been updated')
+            flash('Your password has been updated',category="info")
             db.session.commit()
             return redirect(url_for('auth.userinfo'))           
 
