@@ -20,13 +20,13 @@
   * Designed user dashboard to support asynchronous tasks such as a view, a journal component for numeric or  visual analysis  that pulls data from an database and populates a cell of the dashboard
   * Programmed CSS, HTML, Bootstrap and JavaScript(chart.JS) to design layout for homepage, sign-in/sign-up page and dashboard.  
   
-  User will have the following options:
-      * Create (Balance Sheet Generator),
-      ![image](https://user-images.githubusercontent.com/93847807/181357617-26f9be53-fd85-4780-a33f-7c99d95698c1.png)
-      * View/analysis (Balance Sheet WareHouse)
-      ![image](https://user-images.githubusercontent.com/93847807/181358577-25078676-bf74-44ce-8e75-57841b2dc83b.png)
-      * Edit/delete (Alteration Zone) 
-       ![image](https://user-images.githubusercontent.com/93847807/181359025-76e6584b-6ceb-4cb3-b2b7-881521eb8274.png)           
+  * User will have the following options:
+    * Create (Balance Sheet Generator),
+        ![image](https://user-images.githubusercontent.com/93847807/181357617-26f9be53-fd85-4780-a33f-7c99d95698c1.png)
+    * View/analysis (Balance Sheet WareHouse)
+        ![image](https://user-images.githubusercontent.com/93847807/181358577-25078676-bf74-44ce-8e75-57841b2dc83b.png)
+    * Edit/delete (Alteration Zone) 
+         ![image](https://user-images.githubusercontent.com/93847807/181359025-76e6584b-6ceb-4cb3-b2b7-881521eb8274.png)           
 
   
 ## Technologies
