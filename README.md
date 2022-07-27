@@ -15,9 +15,13 @@
 * Project Preview:
   * This project is for a user who wants to take responsibility for creating their own Balance -sheet.User will have the following options:
       * Create (Balance Sheet Generator),
-      * View/analysis (Balance Sheet WareHouse) and 
-      * Edit/delete (Alteration Zone).
-	
+      ![image](https://user-images.githubusercontent.com/93847807/181357617-26f9be53-fd85-4780-a33f-7c99d95698c1.png)
+      * View/analysis (Balance Sheet WareHouse)
+      ![image](https://user-images.githubusercontent.com/93847807/181358577-25078676-bf74-44ce-8e75-57841b2dc83b.png)
+      * Edit/delete (Alteration Zone) 
+       ![image](https://user-images.githubusercontent.com/93847807/181359025-76e6584b-6ceb-4cb3-b2b7-881521eb8274.png)           
+
+  
 ## Technologies
 Project is created with:
 * For backend: Python,FLASK
