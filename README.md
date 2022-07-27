@@ -23,4 +23,4 @@ Project is created with:
 * For backend: Python,FLASK
 * For Frontend: Bootstrap, HTML, CSS
 * Internal Dashboard: JS, Chart.js
-* Database: ProsgreSQL
+* Database: PostgreSQL
